@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>DATAVIM</title>
+</head>
+<body>
+
+    <header class="cabecera">
+        <nav class="cabecera__nav">
+            <img src="./img/home.svg" alt="Not found" class="cabecera__nav--img">
+            <a href="#" class="cabecera__nav--a">Inicio</a>
+            <img src="./img/indicadores.png" alt="Not found" class="cabecera__nav--img">
+            <a href="#" class="cabecera__nav--a">Indicadores</a>
+            <img src="./img/download.svg" alt="Not found" class="cabecera__nav--img">
+            <a href="#" class="cabecera__nav--a">Descargas</a>
+        </nav>
+        <button class="cabecera__menu-toggle">
+            <img src="./img/menu.svg" alt="Menú">
+        </button>
+        <img src="./img/ismujeres.png" alt="Not found" class="cabecera__logo">
+    </header>
+
+    <section class="principal">
+        <div class="principal__texto">
+            <h1 class="principal__h1">DATAVIM</h1>
+            <h2 class="principal__h2">BAJA CALIFORNIA SUR</h2>
+        
+            <p class="principal__parrafoOne">
+                    La desigualdad, discriminación y la violencia que viven las niñas, las adolescentes y las mujeres es una realidad que se da en diversos sectores de la sociedad mexicana.  Su realidad está marcada por condiciones desfavorables dentro de sus hogares, comunidades, sectores académicos o profesionales. Lo que exige que el Estado realice acciones contundentes para favorecer las condiciones de seguridad e igualdad para todas ellas.
+                </p>
+            <p class="principal__parrafoTwo">
+                    Por esta razón el <span class="principal__span">Instituto Sudcaliforniano</span> de las Mujeres ha implementado una herramienta de análisis que permite conocer y medir el estado que guarda la lucha contra la erradicación de la violencia contra las mujeres.
+            </p>
+
+            <figure class="figure__principal">
+                <img src="./img/seccion de indicadores texto elemento (1).png" alt="Not found" width="300px" class="indicadores"><br>
+                <img src="./img/arrow_curve.webp" alt="" width="40px" class="arrow">
+                <a href="#" class="principal__cta">CLICK AQUÍ</a>
+                <img src="./img/background-img.webp" alt="Not found" class="figure__img">
+                <img src="./img/conavim.png" alt="Not found" class="figure__baner">
+            </figure>
+        </div> 
+    </section>
+
+    <footer class="footer">
+        <p class="footer__p">Este Programa es público, ajeno a cualquier partido político. Queda prohibido el uso para ﬁnes distintos a los establecidos en el programa.</p>
+    </footer>
+    
+    <script>
+        // JavaScript para ocultar el menú en pantallas más grandes
+        const menuToggle = document.querySelector('.cabecera__menu-toggle');
+        const nav = document.querySelector('.cabecera__nav');
+        const mediaQuery = window.matchMedia('(min-width: 1024px)'); // Define la media query según tu umbral
+
+        function checkScreenSize() {
+            if (mediaQuery.matches) {
+                // Si la pantalla es más grande que el umbral, oculta el menú
+                nav.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        }
+
+        // Ejecuta la función cuando se carga la página y al cambiar el tamaño de la pantalla
+        window.addEventListener('load', checkScreenSize);
+        window.addEventListener('resize', checkScreenSize);
+
+        // Agrega un evento click al botón de menú para mostrar/ocultar el menú en pantallas pequeñas
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Oculta el menú cuando se hace clic en un enlace del menú en pantallas pequeñas
+        const menuLinks = document.querySelectorAll('.cabecera__nav--a');
+        menuLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                if (mediaQuery.matches) {
+                    return; // No ocultes el menú en pantallas grandes
+                }
+                nav.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+
+    </script>
+</body>
+</html>
